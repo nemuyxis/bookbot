@@ -10,7 +10,14 @@ def get_book_text(filepath):
         return file_content
     
 def main():
-    filepath = "books/frankenstein.txt"
+    filepath = ""
+    if (len(sys.argv) < 2):
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    
+    filepath = sys.argv[1]
+
+
     book_text = get_book_text(filepath)
     num_words = count_book_words(book_text)
     characters = count_characters(book_text)
