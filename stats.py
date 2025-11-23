@@ -30,6 +30,11 @@ def count_characters(book_text):
         "x": 0,
         "y": 0,
         "z": 0,
+        "æ": 0,
+        "â": 0,
+        "ê": 0,
+        "ë": 0,
+        "ô": 0,
     }
 
     for char, char_count in characters.items():
@@ -37,4 +42,18 @@ def count_characters(book_text):
     
     return characters
 
+def sort_key(items):
+    return items["num"]
+
+
+def sort_char_count(characters):
+    char_count = []
+
+    for item in characters:
+        char = item
+        num = characters[item]
+        char_count.append({"char": char, "num": num})
+
+    char_count.sort(reverse=True, key=sort_key)
+    return char_count
 
